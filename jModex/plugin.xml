@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="SPaCIoS.front.JavaProjectObjectContribution"
+            objectClass="org.eclipse.jdt.core.IJavaProject">
+         <menu
+               id="SPaCIoS.front.popupmenu.JavaProjectMenu"
+               label="SPaCIoS">
+            <groupMarker
+                  name="ro.ieat.jmodex.content">
+            </groupMarker>
+         </menu>
+         <menu
+               id="ro.ieat.jmodex.popupmenu"
+               label="jModex"
+               path="SPaCIoS.front.popupmenu.JavaProjectMenu/ro.ieat.jmodex.content">
+            <groupMarker
+                  name="content">
+            </groupMarker>
+         </menu>
+         <action
+               class="ro.ieat.jmodex.integration.GenerateAslanppAction"
+               id="ro.ieat.jmodex.popupmenu.action.inferaslanppmodel"
+               label="Infer Aslan++ Model"
+               menubarPath="SPaCIoS.front.popupmenu.JavaProjectMenu/ro.ieat.jmodex.popupmenu/content">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="SPaCIoS.front.menus.SPaCIoSMenu"
+               label="SPaCIoS"
+               mnemonic="S">
+            <menu
+                  label="jModex"
+                  mnemonic="j">
+               <command
+                     commandId="ro.ieat.jmodex.command.inferaslanppmodeldialog"
+                     label="Infer Aslan++ Model Dialog"
+                     mnemonic="I"
+                     style="push">
+               </command>
+            </menu>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            class="spacios.front.prop.SPaCIoSPropertyPage"
+            id="SPaCIoS.front.menus.ProperyPage"
+            name="SPaCIoS"
+            objectClass="org.eclipse.jdt.core.IJavaProject">
+      </page>
+      <page
+            category="SPaCIoS.front.menus.ProperyPage"
+            class="ro.ieat.jmodex.integration.ProjectPropertyPage"
+            id="ro.ieat.jmodex.propertypage"
+            name="jModex"
+            objectClass="org.eclipse.jdt.core.IJavaProject">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="SPaCIoS.front.commands.category"
+            name="SPaCIoS Command Category">
+      </category>
+      <command
+            categoryId="SPaCIoS.front.commands.category"
+            defaultHandler="ro.ieat.jmodex.integration.InferAslanppModelDialogCommand"
+            id="ro.ieat.jmodex.command.inferaslanppmodeldialog"
+            name="Infer Aslan++ Model Dialog">
+      </command>
+   </extension>
+</plugin>

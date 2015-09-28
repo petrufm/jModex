@@ -1,0 +1,14 @@
+<project name="Wala Library Builder">
+	<property name="WalaLocation" value="/Users/petrum/git/WALA"/>
+	<target name="build.customized.wala">
+		<jar destfile="../../lib/wala.jar1">
+			<fileset dir="${WalaLocation}/com.ibm.wala.cast.java.jdt/bin"/>
+			<fileset dir="${WalaLocation}/com.ibm.wala.cast/bin"/>
+			<fileset dir="${WalaLocation}/com.ibm.wala.cast.java/bin"/>
+			<fileset dir="${WalaLocation}/com.ibm.wala.core/bin"/>
+			<fileset dir="${WalaLocation}/com.ibm.wala.shrike/bin"/>
+			<fileset dir="${WalaLocation}/com.ibm.wala.ide/bin"/>
+			<fileset dir="${WalaLocation}/com.ibm.wala.util/bin"/>
+		</jar>
+	</target>
+</project>
